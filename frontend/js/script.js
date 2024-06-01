@@ -50,24 +50,3 @@ maximizeBtns.forEach((btn) => {
         body.classList.toggle("prevent-scroll");
     });
 });
-
-var swiper = new Swiper(".swiper", {
-    preventClicks: true,
-    noSwiping: true,
-    freeMode: false,
-    spaceBetween: 10,
-    navigation: {
-        nextEl: ".next",
-        prevEl: ".prev",
-    },
-    mousewheel: {
-        invert: false,
-        thresholdDelta: 50,
-        sensitivity: 1,
-    },
-    breakpoints: {
-        0: {
-            slidesPerView: 1,
-        },
-    },
-});
