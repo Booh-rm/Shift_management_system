@@ -4,19 +4,6 @@ const closeBtns = document.querySelectorAll(".close-btn");
 const maximizeBtns = document.querySelectorAll(".maximize-btn");
 const body = document.querySelector("body");
 
-const togglePassword = document.querySelector('#togglePassword');
-const password = document.querySelector('#password');
-
-togglePassword.addEventListener('click', function () {
-    // Toggle the type attribute using getAttribute and setAttribute
-    const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
-    password.setAttribute('type', type);
-
-    // Toggle the icon
-    this.classList.toggle('fa-eye');
-    this.classList.toggle('fa-eye-slash');
-});
-
 iconBoxes.forEach((btn) => {
     btn.addEventListener("click", () => {
         let modal = btn.getAttribute("data-modal");
@@ -82,30 +69,5 @@ var swiper = new Swiper(".swiper", {
         0: {
             slidesPerView: 1,
         },
-        680: {
-            slidesPerView: 2,
-        },
-        1100: {
-            slidesPerView: 3,
-        },
-        1600: {
-            slidesPerView: 4,
-        },
     },
 });
-
-
-document.addEventListener("DOMContentLoaded", function() {
-    const loginPopup = document.querySelector("#login");
-    const aboutPopup = document.querySelector("#about");
-    const ingresarBtnAbout = document.querySelector("#about .login-btn");
-
-    ingresarBtnAbout.addEventListener("click", function() {
-        // console.log("Clic en el botón de ingresar en about");
-        aboutPopup.style.display = "none";
-        loginPopup.style.display = "block";
-    });
-    
-});
-
-
