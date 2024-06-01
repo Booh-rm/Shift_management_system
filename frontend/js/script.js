@@ -50,3 +50,12 @@ maximizeBtns.forEach((btn) => {
         body.classList.toggle("prevent-scroll");
     });
 });
+
+
+// Seleccionar el botón con la clase 'login-btn'
+const loginBtn = document.querySelector('.login-btn');
+
+// Añadir el eventListener para redirigir al hacer clic
+loginBtn.addEventListener('click', () => {
+    window.location.href = '/project/frontend/UI/users.html';
+});
