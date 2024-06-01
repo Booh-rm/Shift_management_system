@@ -459,13 +459,13 @@ input:-webkit-autofill:active {
   -webkit-text-fill-color: #fff;
 }
 
-.submit-btn {
+.login-btn {
   padding: 12px 20px;
   font-size: 1.1rem;
   margin: 10px auto 0;
 }
 
-.submit-btn span {
+.login-btn span {
   display: flex;
   gap: 10px;
 }
