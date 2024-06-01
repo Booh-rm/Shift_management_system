@@ -1,4 +1,5 @@
 const iconBoxes = document.querySelectorAll(".icon-box");
+const iconBoxBack = document.querySelectorAll(".icon-box-back");
 const iconBoxContainers = document.querySelectorAll(".icon-container");
 const closeBtns = document.querySelectorAll(".close-btn");
 const maximizeBtns = document.querySelectorAll(".maximize-btn");
@@ -92,4 +93,12 @@ var swiper = new Swiper(".swiper", {
             slidesPerView: 4,
         },
     },
+});
+
+// Seleccionar el botón con la clase 'login-btn'
+const bBtn = document.querySelector('.back-btn');
+
+// Añadir el eventListener para redirigir al hacer clic
+loginBtn.addEventListener('click', () => {
+    window.location.href = '/project/index.html';
 });
