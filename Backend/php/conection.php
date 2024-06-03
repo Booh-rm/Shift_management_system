@@ -2,8 +2,8 @@
 
 $serverName = "localhost";
 $userName = "root";
-$password = "root";
-$database = "Shift_management_system";
+$password = "";
+$database = "shift_management_system";
 
 $conn = mysqli_connect($serverName, $userName, $password, $database);
 

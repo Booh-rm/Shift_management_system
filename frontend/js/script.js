@@ -57,5 +57,5 @@ const loginBtn = document.querySelector('.login-btn');
 
 // Añadir el eventListener para redirigir al hacer clic
 loginBtn.addEventListener('click', () => {
-    window.location.href = '/project/frontend/UI/users.html';
+    window.location.href = '/project/frontend/UI/users/users.html';
 });
