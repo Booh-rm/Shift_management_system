@@ -67,3 +67,11 @@ const turnosBtn = document.querySelector('.turnos-btn');
 turnosBtn.addEventListener('click', () => {
     window.location.href = '/Shift_management_system/frontend/UI/ShiftsViewer/ShiftsViewer.html';
 });
+
+// Seleccionar el botón con la clase 'solicitud-btn'
+const solicitudBtn = document.querySelector('.solicitud-btn');
+
+// Añadir el eventListener para redirigir al hacer clic
+solicitudBtn.addEventListener('click', () => {
+    window.location.href = '/Shift_management_system/frontend/UI/Shifts/shifts.html';
+});
