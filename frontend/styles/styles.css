@@ -470,6 +470,28 @@ input:-webkit-autofill:active {
   gap: 10px;
 }
 
+.turnos-btn {
+  padding: 12px 20px;
+  font-size: 1.1rem;
+  margin: 10px auto 0;
+}
+
+.turnos-btn span {
+  display: flex;
+  gap: 10px;
+}
+
+.solicitud-btn {
+  padding: 12px 20px;
+  font-size: 1.1rem;
+  margin: 10px auto 0;
+}
+
+.solicitud-btn span {
+  display: flex;
+  gap: 10px;
+}
+
 @media (max-width: 900px) {
   .popup-body {
     padding: 30px;
