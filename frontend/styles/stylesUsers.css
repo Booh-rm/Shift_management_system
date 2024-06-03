@@ -134,6 +134,7 @@ section {
             rgb(71, 86, 226) 0%,
             rgb(3, 61, 168) 100%);
 }
+
 /* ------- */
 /* POPUP */
 
@@ -478,6 +479,24 @@ textarea {
     resize: vertical;
 }
 
+input[type="email"] {
+    font-size: 1rem;
+    width: 100%;
+    padding: 14px;
+    background-color: transparent;
+    color: #fff;
+    outline: 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin: 10px 0 20px;
+    resize: vertical;
+}
+
+input[type="email"]:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    border: 2px solid rgb(220, 20, 80);
+}
 
 input[type="number"] {
     font-size: 1rem;

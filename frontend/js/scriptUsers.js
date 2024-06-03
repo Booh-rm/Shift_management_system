@@ -6,12 +6,36 @@ const maximizeBtns = document.querySelectorAll(".maximize-btn");
 const body = document.querySelector("body");
 
 const togglePassword = document.querySelector('#togglePassword');
-const password = document.querySelector('#password');
+const togglePassword2 = document.querySelector('#togglePassword2');
+const togglePassword3 = document.querySelector('#togglePassword3');
+const passwordlogin = document.querySelector('#passwordlogin');
+const passwordregister = document.querySelector('#passwordregister');
+const passwordregisterc = document.querySelector('#passwordregisterc');
 
 togglePassword.addEventListener('click', function () {
     // Toggle the type attribute using getAttribute and setAttribute
-    const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
-    password.setAttribute('type', type);
+    const type = passwordlogin.getAttribute('type') === 'password' ? 'text' : 'password';
+    passwordlogin.setAttribute('type', type);
+
+    // Toggle the icon
+    this.classList.toggle('fa-eye');
+    this.classList.toggle('fa-eye-slash');
+});
+
+togglePassword2.addEventListener('click', function () {
+    // Toggle the type attribute using getAttribute and setAttribute
+    const type = passwordregister.getAttribute('type') === 'password' ? 'text' : 'password';
+    passwordregister.setAttribute('type', type);
+
+    // Toggle the icon
+    this.classList.toggle('fa-eye');
+    this.classList.toggle('fa-eye-slash');
+});
+
+togglePassword3.addEventListener('click', function () {
+    // Toggle the type attribute using getAttribute and setAttribute
+    const type = passwordregisterc.getAttribute('type') === 'password' ? 'text' : 'password';
+    passwordregisterc.setAttribute('type', type);
 
     // Toggle the icon
     this.classList.toggle('fa-eye');
