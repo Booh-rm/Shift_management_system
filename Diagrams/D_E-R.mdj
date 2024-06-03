@@ -57,7 +57,7 @@
 											"top": 69,
 											"width": 167.7060546875,
 											"height": 13,
-											"text": "usuario"
+											"text": "tb_usuario"
 										},
 										{
 											"_type": "ERDColumnCompartmentView",
@@ -186,7 +186,7 @@
 											"top": 341,
 											"width": 190.85595703125,
 											"height": 13,
-											"text": "tipo_consulta"
+											"text": "tb_tipo_consulta"
 										},
 										{
 											"_type": "ERDColumnCompartmentView",
@@ -285,7 +285,7 @@
 											"top": 181,
 											"width": 201.6533203125,
 											"height": 13,
-											"text": "turno"
+											"text": "tb_turno"
 										},
 										{
 											"_type": "ERDColumnCompartmentView",
@@ -621,7 +621,7 @@
 											"top": 173,
 											"width": 231.2841796875,
 											"height": 13,
-											"text": "funcionario"
+											"text": "tb_funcionario"
 										},
 										{
 											"_type": "ERDColumnCompartmentView",
@@ -929,7 +929,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGPxIlfoq2WAbY="
 							},
-							"name": "usuario",
+							"name": "tb_usuario",
 							"ownedElements": [
 								{
 									"_type": "ERDRelationship",
@@ -1019,7 +1019,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGPxIlfoq2WAbY="
 							},
-							"name": "tipo_consulta",
+							"name": "tb_tipo_consulta",
 							"ownedElements": [
 								{
 									"_type": "ERDRelationship",
@@ -1116,7 +1116,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGPxIlfoq2WAbY="
 							},
-							"name": "turno",
+							"name": "tb_turno",
 							"ownedElements": [
 								{
 									"_type": "ERDRelationship",
@@ -1239,7 +1239,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGPxIlfoq2WAbY="
 							},
-							"name": "funcionario",
+							"name": "tb_funcionario",
 							"ownedElements": [
 								{
 									"_type": "ERDRelationship",
