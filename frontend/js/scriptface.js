@@ -1,10 +1,10 @@
 const video = document.getElementById('video')
 
 Promise.all([
-  faceapi.nets.tinyFaceDetector.loadFromUri('/project/frontend/js/models'),
-  faceapi.nets.faceLandmark68Net.loadFromUri('/project/frontend/js/models'),
-  faceapi.nets.faceRecognitionNet.loadFromUri('/project/frontend/js/models'),
-  faceapi.nets.faceExpressionNet.loadFromUri('/project/frontend/js/models')
+  faceapi.nets.tinyFaceDetector.loadFromUri('/Shift_management_system/frontend/js/models'),
+  faceapi.nets.faceLandmark68Net.loadFromUri('/Shift_management_system/frontend/js/models'),
+  faceapi.nets.faceRecognitionNet.loadFromUri('/Shift_management_system/frontend/js/models'),
+  faceapi.nets.faceExpressionNet.loadFromUri('/Shift_management_system/frontend/js/models')
 ]).then(startVideo)
 
 function startVideo() {

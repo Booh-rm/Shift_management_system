@@ -100,5 +100,5 @@ const bBtn = document.querySelector('.back-btn');
 
 // Añadir el eventListener para redirigir al hacer clic
 loginBtn.addEventListener('click', () => {
-    window.location.href = '/project/index.html';
+    window.location.href = '/Shift_management_system/index.html';
 });
