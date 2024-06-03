@@ -84,6 +84,31 @@ section {
     transform: scale(1.1);
 }
 
+.icon-box-back {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    aspect-ratio: 1/1;
+    border-radius: 12px;
+    color: #fff;
+    font-size: 1.5rem;
+    padding: 5px;
+    cursor: pointer;
+    transition: all 0.4s;
+}
+
+.icon-box-back:hover {
+    transform: scale(1.1);
+}
+
+.back-btn {
+    background-color: rgb(76, 187, 238);
+    background-image: linear-gradient(340deg,
+            rgb(71, 86, 226) 0%,
+            rgb(3, 61, 168) 100%);
+}
+
 .shiftviewer {
     background: rgb(182, 164, 248);
     background: linear-gradient(30deg,
