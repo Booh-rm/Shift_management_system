@@ -59,3 +59,11 @@ const loginBtn = document.querySelector('.login-btn');
 loginBtn.addEventListener('click', () => {
     window.location.href = '/project/frontend/UI/users/users.html';
 });
+
+// Seleccionar el botón con la clase 'turnos-btn'
+const turnosBtn = document.querySelector('.turnos-btn');
+
+// Añadir el eventListener para redirigir al hacer clic
+turnosBtn.addEventListener('click', () => {
+    window.location.href = '/project/frontend/UI/ShiftsViewer/ShiftsViewer.html';
+});
