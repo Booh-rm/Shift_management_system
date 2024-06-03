@@ -17,16 +17,13 @@
 <body>
     <section>
         <div class="icon-container">
-            <div class="icon-box shiftviewer" data-modal="shiftviewer">
+            <div class="icon-box shift" data-modal="shift">
                 <i class="fa-regular fa-home"></i>
-            </div>
-            <div class="icon-box-back back-btn" type="submit">
-                <i class="fa-solid fa-arrow-left"></i>
             </div>
         </div>
     </section>
 
-    <div class="popup" id="shiftviewer">
+    <div class="popup" id="shift">
         <div class="popup-container">
             <div class="popup-header">
                 <div class="button-container">
@@ -39,16 +36,49 @@
                 </div>
             </div>
 
-            <!-- shiftViewer-container -->
-            <div class="popup-body ">
+            <!-- shifts-container -->
+            <div class="popup-body shift-container">
+                <h1>Solicitar turno</h1>
+                <p>Introduce tu numero de identificación para solicitar un turno.</p>
+                <form id="turnoForm">
+                    <label for="dni">Número de identificación</label>
+                    <input type="text" id="dni" name="dni" placeholder="Tu DNI.." required
+                        oninput="this.value = this.value.replace(/[^0-9]/g, '');">
+                    <label for="dependencia">Seleccione una dependencia para ser atendido</label>
+                    <select id="dependencia" name="dependencia">
+                        <option value="dep1">Dependencia</option>
+                        <option value="dep2">Dependencia 1</option>
+                        <option value="dep3">Dependencia 2</option>
+                        <option value="dep3">Dependencia 3</option>
+                        <option value="dep3">Dependencia 4</option>
+                    </select>
+                    <!-- Contenedor para los nuevos cuadros de texto -->
+                    <div id="additionalFields"></div>
+                    <br>
+                    <button type="button" id="addFieldsBtn" class="submit-btn more-btn">
+                        <span>Solicitar turno<i class="fa-solid fa-calendar-check"></i></span>
+                    </button>
+                </form>
+            </div>
 
-                <div class="shiftviewer-container">
-                    
-
+            <!-- Ventana modal -->
+            <div id="turnoModal" class="modal">
+                <div class="modal-content">
+                    <button class="close circle-btn red">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                    <br>
+                    <p class="turno">Su turno asignado es:
+                    <br>
+                    </p>
+                    <br>
+                    <button type="button" id="closeBtn" class="submit-btn more-btn">
+                        <span>Aceptar<i class="fa-solid fa-check"></i></span>
+                    </button>
                 </div>
             </div>
-        </div>
 
+        </div>
     </div>
 
     <script src="../../js/scriptShifts.js"></script>
