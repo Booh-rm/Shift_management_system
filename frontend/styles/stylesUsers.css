@@ -590,6 +590,6 @@ input:-webkit-autofill:active {
     cursor: pointer;
 }
 
-select#dependencia option {
+select#dependence option {
     color: black;
 }
