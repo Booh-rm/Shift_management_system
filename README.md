@@ -1,7 +1,5 @@
 # <p align=center> Shift management system </p>
 
-<br/>
-
 <h5 align="center" style="margin-bottom: 1px">🗓️ Basic shift system (In progress) 😊</h5>
 
 ----------------------------------
