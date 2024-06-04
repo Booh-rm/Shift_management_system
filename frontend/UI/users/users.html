@@ -86,12 +86,8 @@
                 <p>Introduce tus datos para registrarte.</p>
                 <form>
                     <label for="dependencia">Seleccione su dependencia:</label>
-                    <select id="dependencia" name="dependencia">
-                        <option value="dep1">Dependencia</option>
-                        <option value="dep2">Dependencia 1</option>
-                        <option value="dep3">Dependencia 2</option>
-                        <option value="dep3">Dependencia 3</option>
-                        <option value="dep3">Dependencia 4</option>
+                    <select id="dependence" name="dependence">
+                        <option value="">Seleccione uan dependencia</option>
                     </select>
 
                     <label for="dni">Número de identificación</label>
@@ -120,7 +116,7 @@
                         <i class="fa fa-eye toggle-password" id="togglePassword3"></i>
                     </div>
                     <br>
-                    <button class="submit-btn more-btn" type="submit">
+                    <button class="submit-btn more-btn" type="button" onclick=validateAndRegister()>
                         <span>Registrarse<i class="fa-solid fa-user-plus"></i></span>
                     </button>
                 </form>
@@ -129,9 +125,13 @@
     </div>
 
     <script src="../../js/scriptUsers.js"></script>
+    <script src="../../js/registerUsers/register.js"></script>
+    <script src="../../js/gets/getDependence.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </body>
 
 </html>
