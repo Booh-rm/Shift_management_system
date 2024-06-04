@@ -73,5 +73,5 @@ const solicitudBtn = document.querySelector('.solicitud-btn');
 
 // Añadir el eventListener para redirigir al hacer clic
 solicitudBtn.addEventListener('click', () => {
-    window.location.href = '/Shift_management_system/frontend/UI/Shifts/shifts.html';
+    window.location.href = '/Shift_management_system/frontend/UI/shifts/shifts.html';
 });
