@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../assets/images/list-of-users--.png" type="image/x-icon">
     <title>Turnify - Solicitud de turnos</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="../../styles/stylesShifts.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
@@ -45,12 +46,10 @@
                     <input type="text" id="dni" name="dni" placeholder="Tu DNI.." required
                         oninput="this.value = this.value.replace(/[^0-9]/g, '');">
                     <label for="dependencia">Seleccione una dependencia para ser atendido</label>
+                    
                     <select id="dependencia" name="dependencia">
-                        <option value="dep1">Seleccione una dependencia</option>
-                        <option value="dep2">Dependencia 1</option>
-                        <option value="dep3">Dependencia 2</option>
-                        <option value="dep3">Dependencia 3</option>
-                        <option value="dep3">Dependencia 4</option>
+                        <option value="">Seleccione una dependencia</option>
+                        <!-- Las opciones se cargarán aquí -->
                     </select>
                     <!-- Contenedor para los nuevos cuadros de texto -->
                     <div id="additionalFields"></div>
@@ -82,6 +81,7 @@
     </div>
 
     <script src="../../js/scriptShifts.js"></script>
+    <script src="../../js/gets/getActiveDependence.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
