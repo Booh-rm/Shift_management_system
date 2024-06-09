@@ -17,14 +17,14 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 $user_id = $_SESSION['user_id'];
-$dependencia_id = $_SESSION['dependencia'];
+$dependencia_id = $_SESSION['id_dependencia'];
 
 $response = [
     'type' => 'success',
     'user_name' => $_SESSION['user_name'],
     'user_lastname' => $_SESSION['user_lastname'],
     'email' => $_SESSION['email'],
-    'dependencia' => $_SESSION['dependencia']
+    'dependencia' => $_SESSION['id_dependencia']
 ];
 
 // Consulta para obtener la descripción de la dependencia
