@@ -34,8 +34,9 @@ if ($result->num_rows > 0) {
         $_SESSION['user_name'] = $row['nombre'];
         $_SESSION['user_lastname'] = $row['apellido'];
         $_SESSION['email'] = $row['email'];
+        $response['id_dependencia'] = $row['id_dependencia'];
+        $response['dependencia'] = $row['id_dependencia'];
         $response['type'] = "success";
-        $response['id_dependencia'] = $row['id_dependencia']; 
     } else {
         $response['type'] = "wrongPassword";
     }
