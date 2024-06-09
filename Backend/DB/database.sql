@@ -5,7 +5,8 @@ CREATE TABLE `tb_usuario` (
     `cedula` INT PRIMARY KEY,
     `nombre` VARCHAR(255) NOT NULL,
     `apellido` VARCHAR(255) NOT NULL,
-    `telefono` VARCHAR(20)
+    `telefono` VARCHAR(20),
+    `email` VARCHAR(255)
 );
 
 CREATE TABLE `tb_tipo_consulta` (
@@ -35,4 +36,12 @@ CREATE TABLE `tb_turno` (
     FOREIGN KEY (`id_usuario`) REFERENCES `tb_usuario`(`cedula`),
     FOREIGN KEY (`id_consulta`) REFERENCES `tb_tipo_consulta`(`codigo`),
     FOREIGN KEY (`id_funcionario`) REFERENCES `tb_funcionario`(`cedula`)
+);
+
+CREATE TABLE login_logs (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    id_dependencia INT NOT NULL,
+    login_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES tb_funcionario(cedula)
 );
