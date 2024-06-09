@@ -34,9 +34,18 @@ if ($result->num_rows > 0) {
         $_SESSION['user_name'] = $row['nombre'];
         $_SESSION['user_lastname'] = $row['apellido'];
         $_SESSION['email'] = $row['email'];
+        $_SESSION['id_dependencia'] = $row['id_dependencia'];
         $response['id_dependencia'] = $row['id_dependencia'];
         $response['dependencia'] = $row['id_dependencia'];
         $response['type'] = "success";
+
+        // Insertar un registro en la tabla login_logs
+        $log_sql = "INSERT INTO login_logs (user_id, id_dependencia) VALUES (?, ?)";
+        $log_stmt = $conn->prepare($log_sql);
+        $log_stmt->bind_param("ss", $row['cedula'], $row['id_dependencia']);
+        $log_stmt->execute();
+        $log_stmt->close();
+
     } else {
         $response['type'] = "wrongPassword";
     }
