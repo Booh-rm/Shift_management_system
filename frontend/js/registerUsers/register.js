@@ -30,7 +30,7 @@ function register() {
 
     // Si el formulario está listo para enviar, realiza una petición POST con los datos del registro
     if (ready) {
-        $.post("../../../Backend/php/registerUsers.php", {
+        $.post("../../../Backend/php/registers/registerUsers.php", {
             dni: dni,
             name: name,
             lastname: lastname,
