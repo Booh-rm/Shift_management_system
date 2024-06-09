@@ -24,8 +24,11 @@ document.getElementById('addFieldsBtn').addEventListener('click', function () {
                     return;
                 } else {
                     // Si el DNI existe en la base de datos y la dependencia es válida, muestra la ventana modal
-                    var modal = document.getElementById('turnoModal');
-                    modal.style.display = "block";
+                    
+                    obtenerNombreUsuario();
+                    
+                    // var modal = document.getElementById('turnoModal');
+                    // modal.style.display = "block";
                 }
             } else {
                 // Si el DNI no existe en la base de datos, verifica si los campos adicionales ya se han agregado
@@ -135,8 +138,9 @@ function registerClient() {
                 try {
                     var jsonResponse = JSON.parse(response);
                     if (jsonResponse.type === 1) {
-                        var modal = document.getElementById('turnoModal');
-                        modal.style.display = "block";
+                        obtenerNombreUsuario();
+                        // var modal = document.getElementById('turnoModal');
+                        // modal.style.display = "block";
                     } else {
                         alert('Hubo un error al registrar el cliente: ' + jsonResponse.message);
                     }
@@ -187,3 +191,37 @@ document.getElementById('closeBtn').addEventListener('click', function () {
     // Recarga la página
     window.location.reload();
 });
+
+function obtenerNombreUsuario() {
+    var dni = document.getElementById('dni').value;
+    
+    // Realizar una solicitud AJAX usando jQuery
+    $.ajax({
+        url: '../../../Backend/php/gets/getClientInfo.php',
+        method: 'POST',
+        data: { dni: dni }, // Enviar el DNI al servidor
+        success: function(nombreApellidoUsuario) {
+            console.log(nombreApellidoUsuario);
+            mostrarModalConUsuario(nombreApellidoUsuario);
+        },
+        error: function(xhr, status, error) {
+            console.error("Error en la solicitud AJAX:", error);
+        }
+    });
+}
+
+function mostrarModalConUsuario(nombreApellidoUsuario) {
+    // Separar el nombre y el apellido del usuario
+    var nombreApellidoArray = nombreApellidoUsuario.split(' ');
+    var nombreUsuario = nombreApellidoArray[0];
+    var apellidoUsuario = nombreApellidoArray[1];
+
+    // Agregar el nombre y apellido del usuario al contenido del modal
+    var modalContent = document.querySelector('.modal-content');
+    var turnoP = modalContent.querySelector('.turno');
+    turnoP.innerHTML = "Usuario: " + nombreUsuario + " " + apellidoUsuario + "<br>Su turno asignado es:<br>";
+
+    // Mostrar el modal
+    var modal = document.getElementById('turnoModal');
+    modal.style.display = "block";
+}
