@@ -25,7 +25,7 @@ $result = $stmt->get_result();
 
 $row = $result->fetch_assoc();
 
-$response['nombre'] = $row['nombre'];
+$response['user_name'] = $row['nombre'];
 
 echo json_encode($response);
 

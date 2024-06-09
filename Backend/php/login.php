@@ -17,9 +17,6 @@ if (!$conn) {
 }
 
 // Inicialización del array de respuesta
-// $response = array('type' => "error", 'user_type' => "");
-
-// Inicialización del array de respuesta
 $response = array('type' => "error", 'id_dependencia' => "");
 
 // Usar prepared statements para prevenir inyección SQL
@@ -34,8 +31,10 @@ if ($result->num_rows > 0) {
     // Verificar la contraseña cifrada
     if (password_verify($pass, $row['contrasena'])) {
         $_SESSION['user_id'] = $row['cedula'];
+        $_SESSION['user_name'] = $row['nombre'];
+        $_SESSION['user_lastname'] = $row['apellido'];
+        $_SESSION['email'] = $row['email'];
         $response['type'] = "success";
-        // $response['user_type'] = $row['type'];
         $response['id_dependencia'] = $row['id_dependencia']; 
     } else {
         $response['type'] = "wrongPassword";
