@@ -11,7 +11,8 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-$sql = "SELECT codigo, descripcion FROM tb_tipo_consulta;";
+// Modificar la consulta SQL para excluir registros con codigo=0
+$sql = "SELECT codigo, descripcion FROM tb_tipo_consulta WHERE codigo != '0';";
 $result = $conn->query($sql);
 
 // Array para almacenar las descripciones de las dependencias
