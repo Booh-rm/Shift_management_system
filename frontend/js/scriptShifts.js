@@ -67,6 +67,17 @@ function agregarCamposAdicionales() {
      phone.name = 'phone';
      phone.placeholder = 'Tu número de teléfono...';
      phone.required = true;
+
+     var label4 = document.createElement('label');
+     label4.setAttribute('for', 'email');
+     label4.textContent = 'Correo electrónico';
+
+     var email = document.createElement('input');
+     email.type = 'email';
+     email.id = 'email';
+     email.name = 'email';
+     email.placeholder = 'Tu email...';
+     email.required = true;
  
      // Añadir las etiquetas y los campos al contenedor
      additionalFields.appendChild(label1);
@@ -77,6 +88,9 @@ function agregarCamposAdicionales() {
      additionalFields.appendChild(document.createElement('br'));
      additionalFields.appendChild(label3);
      additionalFields.appendChild(phone);
+     additionalFields.appendChild(document.createElement('br'));
+     additionalFields.appendChild(label4);
+     additionalFields.appendChild(email);
      additionalFields.appendChild(document.createElement('br'));
 
     // Marcar que los campos ya han sido agregados
