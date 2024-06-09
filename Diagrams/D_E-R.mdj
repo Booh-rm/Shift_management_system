@@ -54,7 +54,7 @@
 											},
 											"font": "Arial;13;1",
 											"left": 136,
-											"top": 69,
+											"top": 53,
 											"width": 167.7060546875,
 											"height": 13,
 											"text": "tb_usuario"
@@ -81,7 +81,7 @@
 													"visible": false,
 													"font": "Arial;13;0",
 													"left": -51,
-													"top": 108,
+													"top": 76,
 													"width": 157.7060546875,
 													"height": 13
 												},
@@ -96,7 +96,7 @@
 													},
 													"font": "Arial;13;0",
 													"left": 141,
-													"top": 94,
+													"top": 78,
 													"width": 157.7060546875,
 													"height": 13
 												},
@@ -111,7 +111,7 @@
 													},
 													"font": "Arial;13;0",
 													"left": 141,
-													"top": 109,
+													"top": 93,
 													"width": 157.7060546875,
 													"height": 13
 												},
@@ -126,7 +126,7 @@
 													},
 													"font": "Arial;13;0",
 													"left": 141,
-													"top": 124,
+													"top": 108,
 													"width": 157.7060546875,
 													"height": 13
 												},
@@ -141,23 +141,38 @@
 													},
 													"font": "Arial;13;0",
 													"left": 141,
-													"top": 139,
+													"top": 123,
+													"width": 157.7060546875,
+													"height": 13
+												},
+												{
+													"_type": "ERDColumnView",
+													"_id": "AAAAAAGP+xo9avHJd3I=",
+													"_parent": {
+														"$ref": "AAAAAAGPxIl8aq2fuPs="
+													},
+													"model": {
+														"$ref": "AAAAAAGP+xo9YfHGTuc="
+													},
+													"font": "Arial;13;0",
+													"left": 141,
+													"top": 138,
 													"width": 157.7060546875,
 													"height": 13
 												}
 											],
 											"font": "Arial;13;0",
 											"left": 136,
-											"top": 87,
+											"top": 71,
 											"width": 167.7060546875,
-											"height": 70
+											"height": 85
 										}
 									],
 									"font": "Arial;13;0",
 									"left": 136,
-									"top": 64,
+									"top": 48,
 									"width": 167.7060546875,
-									"height": 93,
+									"height": 108,
 									"nameLabel": {
 										"$ref": "AAAAAAGPxIl8aq2e66M="
 									},
@@ -1008,6 +1023,16 @@
 										"$ref": "AAAAAAGPxIl8aq2b66Q="
 									},
 									"name": "Telefono",
+									"type": "VARCHAR",
+									"length": 0
+								},
+								{
+									"_type": "ERDColumn",
+									"_id": "AAAAAAGP+xo9YfHGTuc=",
+									"_parent": {
+										"$ref": "AAAAAAGPxIl8aq2b66Q="
+									},
+									"name": "email",
 									"type": "VARCHAR",
 									"length": 0
 								}
