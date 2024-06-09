@@ -3,6 +3,7 @@ window.onload = function () {
         var obj = JSON.parse(data);
         if (obj.type === 'success') {
             document.getElementById("userName").innerText = obj.user_name + ' ' + obj.user_lastname;
+            document.getElementById("dependencia").innerText = " " + obj.dependencia;
         } else {
             console.error("Error: " + obj.message);
             // Redirige a la página de inicio de sesión si no está logeado
