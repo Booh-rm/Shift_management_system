@@ -48,6 +48,31 @@ section {
     height: 100vh;
 }
 
+/* Para navegadores webkit (Chrome, Safari, Opera) */
+input::-webkit-input-placeholder {
+    color: #e4e4e4;
+}
+
+/* Para Firefox */
+input::-moz-placeholder {
+    color: #e4e4e4;
+}
+
+/* Para Internet Explorer 10-11 */
+input:-ms-input-placeholder {
+    color: #e4e4e4;
+}
+
+/* Para Microsoft Edge */
+input::-ms-input-placeholder {
+    color: #e4e4e4;
+}
+
+/* Selector general moderno */
+input::placeholder {
+    color: #e4e4e4;
+}
+
 /* -------- */
 /* LOGIN */
 
@@ -326,6 +351,7 @@ form {
 
 /* INPUT STYLES */
 input[type="text"],
+input[type="email"],
 select,
 textarea {
     font-size: 1rem;
@@ -355,6 +381,12 @@ input[type="number"] {
 }
 
 input[type="text"]:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    border: 2px solid rgb(220, 20, 80);
+}
+
+input[type="email"]:focus-visible,
 select:focus-visible,
 textarea:focus-visible {
     border: 2px solid rgb(220, 20, 80);
