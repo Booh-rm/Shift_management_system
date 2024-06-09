@@ -19,10 +19,14 @@ document.getElementById('addFieldsBtn').addEventListener('click', function () {
                 if (!fieldsAdded) {
                     agregarCamposAdicionales();
                 } else {
+                    // Si los campos ya se han agregado, enviar el formulario y registrar el cliente
+                    registerClient();
+                    
+                    
                     // Si los campos ya se han agregado, enviar el formulario y mostrar el modal
                     //document.getElementById('turnoForm').submit();
-                    var modal = document.getElementById('turnoModal');
-                    modal.style.display = "block";
+                    // var modal = document.getElementById('turnoModal');
+                    // modal.style.display = "block";
                 }
             }
         }
@@ -95,6 +99,46 @@ function agregarCamposAdicionales() {
 
     // Marcar que los campos ya han sido agregados
     fieldsAdded = true;
+}
+
+
+function registerClient() {
+    var name = document.getElementById('name').value;
+    var lastName = document.getElementById('lastName').value;
+    var phone = document.getElementById('phone').value;
+    var email = document.getElementById('email').value;
+    var dni = document.getElementById('dni').value;
+
+    $.ajax({
+        url: '../../../Backend/php/registers/registerClients.php',
+        method: 'POST',
+        data: {
+            dni: dni,
+            name: name,
+            lastName: lastName,
+            phone: phone,
+            email: email
+        },
+        success: function (response) {
+            console.log('Server response:', response); // Agregar esta línea para ver la respuesta del servidor
+            try {
+                var jsonResponse = JSON.parse(response);
+                if (jsonResponse.type === 1) {
+                    var modal = document.getElementById('turnoModal');
+                    modal.style.display = "block";
+                } else {
+                    alert('Hubo un error al registrar el cliente: ' + jsonResponse.message);
+                }
+            } catch (e) {
+                alert('Hubo un error al procesar la respuesta del servidor. Por favor, inténtelo nuevamente.');
+                console.error('Error parsing JSON response:', e); // Agregar esta línea para ver el error en la consola
+            }
+        },
+        error: function (xhr, status, error) {
+            alert('Hubo un error con la solicitud AJAX. Por favor, inténtelo nuevamente.');
+            console.error('AJAX error:', status, error); // Agregar esta línea para ver el error en la consola
+        }
+    });
 }
 
 // Obtener el elemento de cierre de la ventana modal
