@@ -57,5 +57,22 @@ const logOutBtn = document.querySelector('.exit-btn');
 
 // Añadir el eventListener para redirigir al hacer clic
 logOutBtn.addEventListener('click', () => {
-    window.location.href = '/Shift_management_system/frontend/UI/users/users.html';
+    fetch('../../../Backend/php/logout.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.type === 1) {
+            // Redirigir a la página de inicio de sesión después de cerrar sesión correctamente
+            window.location.href = '/Shift_management_system/frontend/UI/users/users.html';
+        } else {
+            console.error('Error al cerrar sesión:', data.message);
+        }
+    })
+    .catch(error => {
+        console.error('Error en la solicitud de cierre de sesión:', error);
+    });
 });
