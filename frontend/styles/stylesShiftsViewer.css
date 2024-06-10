@@ -388,10 +388,19 @@ section {
 
 .shiftviewertables-down {
     color: red;
-    font-size: 340%;
+    font-size: 3vw;
+    /* Utiliza vw (viewport width) para que el tamaño del texto se ajuste al ancho de la pantalla */
     flex-basis: 30%;
     height: 150px;
-    font-family: 'Press Start 2P', sans-serif;;
+    font-family: 'Press Start 2P', sans-serif;
+}
+
+/* Media query para ajustar el tamaño del texto en pantallas pequeñas */
+@media screen and (max-width: 768px) {
+    .shiftviewertables-down {
+        font-size: 6vw;
+        /* Cambia el tamaño del texto para adaptarse mejor a pantallas pequeñas */
+    }
 }
 
 .content {
@@ -492,6 +501,14 @@ section {
     padding: 20px;
     font-weight: 600;
     font-family: 'Matrix', sans-serif;
+}
+
+/* Media query para ajustar el tamaño del texto en pantallas pequeñas */
+@media screen and (max-width: 768px) {
+    .shifts-table {
+        font-size: 6vw;
+        /* Cambia el tamaño del texto para adaptarse mejor a pantallas pequeñas */
+    }
 }
 
 .caja,

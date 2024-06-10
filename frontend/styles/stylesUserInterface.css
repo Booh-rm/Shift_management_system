@@ -361,7 +361,7 @@ section {
     margin: 0px auto;
     margin-bottom: 30px;
     text-align: center;
-    width: 70%;
+    width: 100%;
     min-width: 300px;
     height: 20%;
     min-height: 50px;
@@ -386,11 +386,28 @@ section {
     height: 70px;
 }
 
-.shiftviewertables-down {
+/* .shiftviewertables-down {
     color: red;
     font-size: 800%;
     flex-basis: 30%;
     height: 150px;
+} */
+
+.shiftviewertables-down {
+    color: rgb(4, 0, 255);
+    font-size: 3vw;
+    /* Utiliza vw (viewport width) para que el tamaño del texto se ajuste al ancho de la pantalla */
+    flex-basis: 30%;
+    height: 150px;
+    font-family: 'Press Start 2P', sans-serif;
+}
+
+/* Media query para ajustar el tamaño del texto en pantallas pequeñas */
+@media screen and (max-width: 768px) {
+    .shiftviewertables-down {
+        font-size: 6vw;
+        /* Cambia el tamaño del texto para adaptarse mejor a pantallas pequeñas */
+    }
 }
 
 .content {
@@ -454,16 +471,27 @@ section {
 }
 
 .shifts-table th {
-    font-size: 150%;
-    color: black;
+    font-size: 200%;
+    color: rgb(35, 0, 189);
     padding: 25px;
 }
 
 .shifts-table td {
+    text-align: center;
     color: black;
-    font-size: 40px;
-    padding-bottom: 15px;
+    font-size: 30px;
+    padding-bottom: 35px;
+    padding: 20px;
     font-weight: 600;
+    font-family: 'Matrix', sans-serif;
+}
+
+/* Media query para ajustar el tamaño del texto en pantallas pequeñas */
+@media screen and (max-width: 768px) {
+    .shifts-table {
+        font-size: 6vw;
+        /* Cambia el tamaño del texto para adaptarse mejor a pantallas pequeñas */
+    }
 }
 
 .footer {
