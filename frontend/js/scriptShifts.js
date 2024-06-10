@@ -161,17 +161,68 @@ function registerClient() {
     }
 }
 
+// function obtenerNombreUsuario() {
+//     var dni = document.getElementById('dni').value;
+    
+//     // Realizar una solicitud AJAX usando jQuery
+//     $.ajax({
+//         url: '../../../Backend/php/gets/getClientInfo.php',
+//         method: 'POST',
+//         data: { dni: dni }, // Enviar el DNI al servidor
+//         success: function(nombreApellidoUsuario) {
+//             console.log(nombreApellidoUsuario);
+//             mostrarModalConUsuario(nombreApellidoUsuario);
+//         },
+//         error: function(xhr, status, error) {
+//             console.error("Error en la solicitud AJAX:", error);
+//         }
+//     });
+// }
+
 function obtenerNombreUsuario() {
     var dni = document.getElementById('dni').value;
-    
-    // Realizar una solicitud AJAX usando jQuery
+
     $.ajax({
         url: '../../../Backend/php/gets/getClientInfo.php',
         method: 'POST',
-        data: { dni: dni }, // Enviar el DNI al servidor
+        data: { dni: dni },
         success: function(nombreApellidoUsuario) {
-            console.log(nombreApellidoUsuario);
-            mostrarModalConUsuario(nombreApellidoUsuario);
+            try {
+                var usuario = JSON.parse(nombreApellidoUsuario);
+
+                var dependencia = document.getElementById('dependencia').value;
+
+                $.ajax({
+                    url: '../../../Backend/php/registers/registerShifts.php',
+                    method: 'POST',
+                    data: {
+                        dni: dni,
+                        id_consulta: dependencia,
+                        nombre_usuario: usuario.nombre,
+                        apellido_usuario: usuario.apellido,
+                        dependencia: dependencia
+                    },
+                    success: function(response) {
+                        try {
+                            var result = JSON.parse(response);
+                            if (result.success) {
+                                mostrarModalConUsuario(result.desc_turno);
+                            } else {
+                                alert('Error al registrar el turno: ' + result.error);
+                            }
+                        } catch (e) {
+                            console.error('Error parsing JSON from registerShifts response:', e);
+                            alert('Hubo un error al procesar la respuesta del servidor. Por favor, inténtelo nuevamente.');
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.error("Error en la solicitud AJAX:", error);
+                    }
+                });
+            } catch (e) {
+                console.error('Error parsing JSON from getClientInfo response:', e);
+                alert('Hubo un error al procesar la respuesta del servidor. Por favor, inténtelo nuevamente.');
+            }
         },
         error: function(xhr, status, error) {
             console.error("Error en la solicitud AJAX:", error);
@@ -179,23 +230,36 @@ function obtenerNombreUsuario() {
     });
 }
 
-function mostrarModalConUsuario(nombreApellidoUsuario) {
-    // Parsear la respuesta JSON
-    var usuario = JSON.parse(nombreApellidoUsuario);
 
-    // Obtener el nombre y el apellido del usuario desde el objeto JSON
-    var nombreUsuario = usuario.nombre;
-    var apellidoUsuario = usuario.apellido;
 
-    // Agregar el nombre y apellido del usuario al contenido del modal
+function mostrarModalConUsuario(descTurno) {
     var modalContent = document.querySelector('.modal-content');
     var turnoP = modalContent.querySelector('.turno');
-    turnoP.innerHTML = "Usuario: " + nombreUsuario + " " + apellidoUsuario + "<br>Su turno asignado es:<br>";
+    turnoP.innerHTML = descTurno;
 
     // Mostrar el modal
     var modal = document.getElementById('turnoModal');
     modal.style.display = "block";
 }
+
+
+// function mostrarModalConUsuario(nombreApellidoUsuario) {
+//     // Parsear la respuesta JSON
+//     var usuario = JSON.parse(nombreApellidoUsuario);
+
+//     // Obtener el nombre y el apellido del usuario desde el objeto JSON
+//     var nombreUsuario = usuario.nombre;
+//     var apellidoUsuario = usuario.apellido;
+
+//     // Agregar el nombre y apellido del usuario al contenido del modal
+//     var modalContent = document.querySelector('.modal-content');
+//     var turnoP = modalContent.querySelector('.turno');
+//     turnoP.innerHTML = "Usuario: " + nombreUsuario + " " + apellidoUsuario + "<br>Su turno asignado es:<br>";
+
+//     // Mostrar el modal
+//     var modal = document.getElementById('turnoModal');
+//     modal.style.display = "block";
+// }
 
 // Obtener el elemento de cierre de la ventana modal
 var span = document.getElementsByClassName('close')[0];
