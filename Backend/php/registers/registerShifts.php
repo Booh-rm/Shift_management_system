@@ -116,8 +116,15 @@ try {
             respondWithError("Error al enviar el correo electrónico: " . $e->getMessage());
         }
 
-        // Enviar SMS con Twilio
-        // $smsStatus = sendSMS($phoneUsuario, $descTurno);
+        try {
+            // Enviar SMS con Twilio
+            $smsStatus = sendSMS($phoneUsuario, $descTurno);
+            if (strpos($smsStatus, 'Error') === 0) {
+                respondWithError($smsStatus);
+            }
+        } catch (Exception $e) {
+            respondWithError("Error al enviar el SMS: " . $e->getMessage());
+        }
 
         echo json_encode(array(
             'success' => true,
