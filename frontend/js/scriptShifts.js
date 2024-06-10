@@ -203,6 +203,7 @@ function obtenerNombreUsuario() {
                         dependencia: dependencia
                     },
                     success: function(response) {
+                        console.log("Respuesta del servidor:", response);
                         try {
                             var result = JSON.parse(response);
                             if (result.success) {
