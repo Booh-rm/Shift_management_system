@@ -11,7 +11,7 @@ function sendEmail($emailUsuario, $nombreUsuario, $descTurno) {
     $email->setSubject("Detalles de su turno");
     $email->addContent("text/plain", $descTurno);
 
-    $sendgrid = new \SendGrid('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');
+    $sendgrid = new \SendGrid('');
     
     try {
         $response = $sendgrid->send($email);
