@@ -4,8 +4,8 @@ require __DIR__ . '../twilio-php/src/Twilio/autoload.php';
 use Twilio\Rest\Client;
 
 function sendSMS($toPhone, $descTurno) {
-    $sid    = "AC5442c195851da4ea4bf7416397313b45";
-    $token  = "f37d3270a53a73218432a67e43eb3be9";
+    $sid    = "";
+    $token  = "";
     $twilio = new Client($sid, $token);
 
     try {
