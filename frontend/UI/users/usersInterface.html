@@ -7,6 +7,9 @@
     <link rel="shortcut icon" href="../../assets/images/list-of-users--.png" type="image/x-icon">
     <title>Turnify - Interfaz usuarios</title>
     <link rel="stylesheet" href="../../styles/stylesUserInterface.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <style>
@@ -75,6 +78,9 @@
                             </h2>
                             <br>
                             <h2>Turno:</h2>
+                            <h2>
+                                <span id="turnoInfo"></span>
+                            </h2>
                             <br><br><br>
                             <button type="submit" name="atender" id="atender-btn" class="submit-btn more-btn">
                                 <span>Atender</span>
@@ -88,10 +94,14 @@
                         <div class="right-content">
                             <div class="shifts-container">
                                 <table class="shifts-table" id="shifts-table">
-                                    <tr>
-                                        <th>Turno</th>
-                                        <th colspan="2">Dependencia</th>
-                                    </tr>
+                                    <thead>
+                                        <tr>
+                                            <th>Turno</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="shifts-table-body">
+                                        <!-- Aquí se incluirán los turnos relacionados con la dependencia -->
+                                    </tbody>
                                 </table>
                             </div>
                         </div>
