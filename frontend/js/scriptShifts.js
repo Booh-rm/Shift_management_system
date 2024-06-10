@@ -161,37 +161,6 @@ function registerClient() {
     }
 }
 
-// Obtener el elemento de cierre de la ventana modal
-var span = document.getElementsByClassName('close')[0];
-
-// Cuando el usuario hace clic en el (x), cerrar la ventana modal
-span.onclick = function () {
-    var modal = document.getElementById('turnoModal');
-    modal.style.display = "none";
-    // Recarga la página
-    window.location.reload();
-}
-
-// Cuando el usuario hace clic fuera de la ventana modal, cerrarla
-window.onclick = function (event) {
-    var modal = document.getElementById('turnoModal');
-    if (event.target == modal) {
-        modal.style.display = "none";
-
-        // Recarga la página
-        window.location.reload();
-    }
-}
-
-document.getElementById('closeBtn').addEventListener('click', function () {
-    // Cierra el modal
-    var modal = document.getElementById('turnoModal');
-    modal.style.display = "none";
-
-    // Recarga la página
-    window.location.reload();
-});
-
 function obtenerNombreUsuario() {
     var dni = document.getElementById('dni').value;
     
@@ -227,3 +196,34 @@ function mostrarModalConUsuario(nombreApellidoUsuario) {
     var modal = document.getElementById('turnoModal');
     modal.style.display = "block";
 }
+
+// Obtener el elemento de cierre de la ventana modal
+var span = document.getElementsByClassName('close')[0];
+
+// Cuando el usuario hace clic en el (x), cerrar la ventana modal
+span.onclick = function () {
+    var modal = document.getElementById('turnoModal');
+    modal.style.display = "none";
+    // Recarga la página
+    window.location.reload();
+}
+
+// Cuando el usuario hace clic fuera de la ventana modal, cerrarla
+window.onclick = function (event) {
+    var modal = document.getElementById('turnoModal');
+    if (event.target == modal) {
+        modal.style.display = "none";
+
+        // Recarga la página
+        window.location.reload();
+    }
+}
+
+document.getElementById('closeBtn').addEventListener('click', function () {
+    // Cierra el modal
+    var modal = document.getElementById('turnoModal');
+    modal.style.display = "none";
+
+    // Recarga la página
+    window.location.reload();
+});
