@@ -9,6 +9,9 @@
     <script defer src="../../js/face-api.min.js"></script>
     <script defer src="../../js/scriptface.js"></script>
     <link rel="stylesheet" href="../../styles/stylesShiftsViewer.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <style>
@@ -72,8 +75,6 @@
 
                             <div class="video-container">
                                 <div class="player-container">
-                                    <!-- <iframe src="https://www.youtube.com/embed/zw9-xodidNA?rel=0&amp;showinfo=0"
-                                        frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> -->
                                     <video id="video" width="400" height="300" autoplay muted></video>
                                 </div>
                             </div>
@@ -82,10 +83,15 @@
                         <div class="right-content">
                             <div class="shifts-container">
                                 <table class="shifts-table" id="shifts-table">
-                                    <tr>
-                                        <th>Turno</th>
-                                        <th colspan="2">Dependencia</th>
-                                    </tr>
+                                    <thead>
+                                        <tr>
+                                            <th>Turno</th>
+                                            <th colspan="2">Dependencia</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="shifts-table-body">
+                                        <!-- Aquí se incluirán las filas generadas por JavaScript -->
+                                    </tbody>
                                 </table>
                             </div>
                         </div>
@@ -102,6 +108,8 @@
     </div>
 
     <script src="../../js/scriptShiftsViewer.js"></script>
+    <script src="../../js/gets/getShifts.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
