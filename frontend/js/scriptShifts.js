@@ -211,10 +211,12 @@ function obtenerNombreUsuario() {
 }
 
 function mostrarModalConUsuario(nombreApellidoUsuario) {
-    // Separar el nombre y el apellido del usuario
-    var nombreApellidoArray = nombreApellidoUsuario.split(' ');
-    var nombreUsuario = nombreApellidoArray[0];
-    var apellidoUsuario = nombreApellidoArray[1];
+    // Parsear la respuesta JSON
+    var usuario = JSON.parse(nombreApellidoUsuario);
+
+    // Obtener el nombre y el apellido del usuario desde el objeto JSON
+    var nombreUsuario = usuario.nombre;
+    var apellidoUsuario = usuario.apellido;
 
     // Agregar el nombre y apellido del usuario al contenido del modal
     var modalContent = document.querySelector('.modal-content');

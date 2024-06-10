@@ -23,12 +23,7 @@ $result = $stmt->get_result();
 if ($result->num_rows > 0) {
     // Si se encontró un usuario con el DNI proporcionado, enviar el nombre y apellido del usuario al cliente
     $row = $result->fetch_assoc();
-    $response = array(
-        'nombre' => $row["nombre"],
-        'apellido' => $row["apellido"]
-    );
-    // Envía los datos directamente como un array
-    echo json_encode($response);
+    echo json_encode($row); // Convertir el array asociativo directamente a JSON
 } else {
     // Si no se encontró un usuario con el DNI proporcionado, devolver un mensaje de error o un valor predeterminado
     echo json_encode(array('error' => 'Usuario no encontrado'));
