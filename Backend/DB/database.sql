@@ -45,3 +45,19 @@ CREATE TABLE login_logs (
     login_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES tb_funcionario(cedula)
 );
+
+CREATE TABLE `tb_turno_atendido` (
+    `id_turno_atendido` INT PRIMARY KEY AUTO_INCREMENT,
+    `id_turno` VARCHAR(50),
+    `id_usuario` INT,
+    `id_consulta` VARCHAR(50),
+    `id_funcionario` VARCHAR(50),
+    `desc_turno` VARCHAR(255),
+    `fecha` DATE,
+    `hora` TIME,
+    `fecha_atendido` DATE,
+    `hora_atendido` TIME,
+    FOREIGN KEY (`id_usuario`) REFERENCES `tb_usuario`(`cedula`),
+    FOREIGN KEY (`id_consulta`) REFERENCES `tb_tipo_consulta`(`codigo`),
+    FOREIGN KEY (`id_funcionario`) REFERENCES `tb_funcionario`(`cedula`)
+);
