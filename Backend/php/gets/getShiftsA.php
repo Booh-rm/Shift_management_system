@@ -1,17 +1,13 @@
 <?php
+
+include('../config/config_mysqli.php');
+
 session_start();
 
 if (!isset($_SESSION['user_id'])) {
     echo json_encode(['type' => 'error', 'message' => 'User not logged in']);
     exit();
 }
-
-$serverName = "localhost";
-$userName = "root";
-$password = "";
-$database = "shift_management_system";
-
-$conn = mysqli_connect($serverName, $userName, $password, $database);
 
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());

@@ -1,15 +1,10 @@
 <?php
 session_start();
 
+include('config/config_mysqli.php');
+
 if (isset($_SESSION['user_id'])) {
     $user_id = $_SESSION['user_id'];
-
-    $serverName = "localhost";
-    $userName = "root";
-    $passwordDB = "";
-    $database = "shift_management_system";
-
-    $conn = mysqli_connect($serverName, $userName, $passwordDB, $database);
 
     if ($conn) {
         $stmt = $conn->prepare("DELETE FROM login_logs WHERE user_id = ?");

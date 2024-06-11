@@ -1,18 +1,12 @@
 <?php
 
+include('../config/config_mysqli.php');
+
 $dni = $_POST["dni"];
 $name = $_POST["name"];
 $lastname = $_POST["lastName"];
 $phone = $_POST["phone"];
 $email = $_POST["email"];
-
-$serverName = "localhost";
-$userName = "root";
-$password = "";
-$database = "shift_management_system";
-
-// Conectar a la base de datos
-$conn = mysqli_connect($serverName, $userName, $password, $database);
 
 if (!$conn) {
     echo json_encode(array('type' => 0, 'message' => 'Connection failed: ' . mysqli_connect_error()));

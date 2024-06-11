@@ -1,4 +1,7 @@
 <?php
+
+include('../config/config_mysqli.php');
+
 session_start();
 
 if (!isset($_SESSION['user_id'])) {
@@ -6,13 +9,6 @@ if (!isset($_SESSION['user_id'])) {
 }
 
 $user_dependencia = $_SESSION['id_dependencia'];
-
-$serverName = "localhost";
-$userName = "root";
-$passwordDB = "";
-$database = "shift_management_system";
-
-$conn = mysqli_connect($serverName, $userName, $passwordDB, $database);
 
 if (!$conn) {
     die(json_encode(array('type' => 0, 'message' => 'Connection failed: ' . mysqli_connect_error())));
