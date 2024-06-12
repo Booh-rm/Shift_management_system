@@ -1,6 +1,6 @@
 <?php
 
-include('config/config_mysqli.php');
+include('../config/config_mysqli.php');
 
 $dni = $_POST["dni"];
 $dependence = $_POST["dependence"];
