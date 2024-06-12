@@ -46,7 +46,7 @@
                     <input type="text" id="dni" name="dni" placeholder="Tu DNI.." required
                         oninput="this.value = this.value.replace(/[^0-9]/g, '');">
                     <label for="dependencia">Seleccione una dependencia para ser atendido</label>
-                    
+
                     <select id="dependencia" name="dependencia">
                         <option value="">Seleccione una dependencia</option>
                         <!-- Las opciones se cargarán aquí -->
@@ -68,10 +68,26 @@
                     </button>
                     <br>
                     <p class="turno">usuario: Su turno asignado es:
-                    <br>
+                        <br>
                     </p>
                     <br>
                     <button type="button" id="closeBtn" class="submit-btn more-btn">
+                        <span>Aceptar<i class="fa-solid fa-check"></i></span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Modal para mostrar el mensaje "Usted ya tiene un turno asignado" -->
+            <div id="turnoAsignadoModal" class="modal">
+                <div class="modal-content">
+                    <button class="close2 circle-btn red">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                    <br>
+                    <p>Usted ya tiene un turno asignado.</p>
+                    
+                    <br>
+                    <button type="button" id="closeBtnTA" class="submit-btn more-btn">
                         <span>Aceptar<i class="fa-solid fa-check"></i></span>
                     </button>
                 </div>
@@ -82,7 +98,7 @@
 
     <script src="../../js/scriptShifts.js"></script>
     <script src="../../js/gets/getActiveDependence.js"></script>
-    
+
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
