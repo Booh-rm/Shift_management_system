@@ -23,12 +23,26 @@ document.getElementById('addFieldsBtn').addEventListener('click', function () {
                     // Salir de la función para evitar que se muestren las opciones adicionales
                     return;
                 } else {
-                    // Si el DNI existe en la base de datos y la dependencia es válida, muestra la ventana modal
-                    
-                    obtenerNombreUsuario();
-                    
-                    // var modal = document.getElementById('turnoModal');
-                    // modal.style.display = "block";
+
+                    $.ajax({
+                        url: '../../../Backend/php/gets/checkShifts.php',
+                        method: 'POST',
+                        data: { dni: dni }, // Envía el DNI al servidor
+                        success: function (turnoResponse) {
+                            // Verifica si el usuario ya tiene un turno asignado
+                            if (turnoResponse === 'existe') {
+                                // Si el usuario ya tiene un turno asignado, muestra el modal
+                                var modal = document.getElementById('turnoAsignadoModal');
+                                modal.style.display = "block";
+                            } else {
+                                // Si el usuario no tiene un turno asignado, continua con el flujo normal
+                                obtenerNombreUsuario();
+                            }
+                        },
+                        error: function (xhr, status, error) {
+                            console.error('Error en la solicitud AJAX para verificar turno:', error);
+                        }
+                    });
                 }
             } else {
                 // Si el DNI no existe en la base de datos, verifica si los campos adicionales ya se han agregado
@@ -228,6 +242,7 @@ function mostrarModalConUsuario(descTurno) {
 
 // Obtener el elemento de cierre de la ventana modal
 var span = document.getElementsByClassName('close')[0];
+var span = document.getElementsByClassName('close2')[0];
 
 // Cuando el usuario hace clic en el (x), cerrar la ventana modal
 span.onclick = function () {
@@ -251,6 +266,34 @@ window.onclick = function (event) {
 document.getElementById('closeBtn').addEventListener('click', function () {
     // Cierra el modal
     var modal = document.getElementById('turnoModal');
+    modal.style.display = "none";
+
+    // Recarga la página
+    window.location.reload();
+});
+
+// Cuando el usuario hace clic en el (x), cerrar la ventana modal
+span.onclick = function () {
+    var modal = document.getElementById('turnoAsignadoModal');
+    modal.style.display = "none";
+    // Recarga la página
+    window.location.reload();
+}
+
+// Cuando el usuario hace clic fuera de la ventana modal, cerrarla
+window.onclick = function (event) {
+    var modal = document.getElementById('turnoAsignadoModal');
+    if (event.target == modal) {
+        modal.style.display = "none";
+
+        // Recarga la página
+        window.location.reload();
+    }
+}
+
+document.getElementById('closeBtnTA').addEventListener('click', function () {
+    // Cierra el modal
+    var modal = document.getElementById('turnoAsignadoModal');
     modal.style.display = "none";
 
     // Recarga la página
