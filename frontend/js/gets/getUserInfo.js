@@ -18,12 +18,16 @@ function loadDependenciaTurnos() {
         .then(data => {
             const verTurnoSpan = document.getElementById('turnoInfo');
             const shiftsTableBody = document.getElementById('shifts-table-body');
+            const shiftheaderA = document.getElementById('verTurno');
+            const shiftheaderB = document.getElementById('verCaja');
             // Limpiar cualquier contenido existente
             verTurnoSpan.innerHTML = '';
+            shiftsTableBody.innerHTML = ''; // Limpiar la tabla de turnos
+            shiftheaderA.innerHTML = '';
+            shiftheaderB.innerHTML = '';
 
             if (data.length > 0) {
                 const primerTurno = data[0];
-
 
                 // Mostrar el primer turno en el encabezado
                 document.getElementById('verTurno').textContent = primerTurno.id_turno;
@@ -35,32 +39,19 @@ function loadDependenciaTurnos() {
                 // Agregar el texto al elemento span
                 verTurnoSpan.appendChild(turnoText);
 
-                // Crear una fila en la tabla para mostrar el primer turno
-                const primerTurnoRow = document.createElement('tr');
-                const primerTurnoCell = document.createElement('td');
-                const dependenciaCell = document.createElement('td');
-                primerTurnoCell.textContent = primerTurno.id_turno;
-                dependenciaCell.textContent = primerTurno.dependencia;
-                dependenciaCell.colSpan = 2;
+                // Limpiar la cola de turnos
+                turnosQueue = [];
 
-                primerTurnoRow.appendChild(primerTurnoCell);
-                primerTurnoRow.appendChild(dependenciaCell);
-                shiftsTableBody.appendChild(primerTurnoRow);
-
-                // Mostrar los siguientes cuatro turnos en la tabla
-                for (let i = 1; i < Math.min(data.length, 5); i++) {
-                    const turno = data[i];
-                    const row = document.createElement('tr');
-                    const turnoCell = document.createElement('td');
-                    turnoCell.textContent = turno.id_turno;
-                    const dependenciaCell = document.createElement('td');
-                    dependenciaCell.textContent = turno.dependencia;
-                    dependenciaCell.colSpan = 2;
-
-                    row.appendChild(turnoCell);
-                    row.appendChild(dependenciaCell);
-                    shiftsTableBody.appendChild(row);
+                // Agregar los siguientes turnos a la cola de turnos
+                for (let i = 1; i < Math.min(data.length, 6); i++) {
+                    turnosQueue.push(data[i]);
                 }
+
+                // Actualizar la tabla con los turnos en la cola
+                updateTable();
+                console.log('Tabla actualizada en la vista 1');
+                document.dispatchEvent(new Event('tablaActualizada'));
+
             } else {
                 const noTurnoRow = document.createElement('tr');
                 const noTurnoCell = document.createElement('td');
@@ -75,3 +66,28 @@ function loadDependenciaTurnos() {
 
 // Cargar los turnos relacionados con la dependencia del funcionario
 document.addEventListener('DOMContentLoaded', loadDependenciaTurnos);
+
+// Función para actualizar la tabla con los siguientes 5 turnos
+function updateTable() {
+    const tableBody = document.getElementById('shifts-table-body');
+    tableBody.innerHTML = '';  // Limpiar cualquier contenido existente
+
+    turnosQueue.forEach(turno => {
+        const row = document.createElement('tr');
+        const turnoCell = document.createElement('td');
+        turnoCell.textContent = turno.id_turno;
+
+        row.appendChild(turnoCell);
+
+        tableBody.appendChild(row);
+    });
+
+    if (turnosQueue.length === 0) {
+        const row = document.createElement('tr');
+        const cell = document.createElement('td');
+        cell.textContent = 'No hay turnos disponibles';
+        cell.colSpan = 3;
+        row.appendChild(cell);
+        tableBody.appendChild(row);
+    }
+}
