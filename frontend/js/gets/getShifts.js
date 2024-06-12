@@ -1,10 +1,25 @@
 let turnosQueue = [];
-
+// document.addEventListener('DOMContentLoaded', function() {
+//     loadTurnos();
+//     console.log('Escuchando evento de tabla actualizada en la vista 2');
+//     document.addEventListener('tablaActualizada', loadTurnos);
+// });
 // Función para cargar los turnos desde el archivo PHP
 function loadTurnos() {
     fetch('../../../Backend/php/gets/getShifts.php')
         .then(response => response.json())
         .then(data => {
+
+            const verTurnoSpan = document.getElementById('turnoInfo');
+            const shiftsTableBody = document.getElementById('shifts-table-body');
+            const shiftheaderA = document.getElementById('verTurno');
+            const shiftheaderB = document.getElementById('verCaja');
+            // Limpiar cualquier contenido existente
+            verTurnoSpan.innerHTML = '';
+            shiftsTableBody.innerHTML = ''; // Limpiar la tabla de turnos
+            shiftheaderA.innerHTML = '';
+            shiftheaderB.innerHTML = '';
+
             // Dividir los turnos en dos grupos: primer turno y los siguientes 5 turnos
             const primerTurno = data.shift(); // Extraer el primer turno
             const siguientesTurnos = data.slice(0, 5); // Obtener los siguientes 5 turnos
@@ -49,13 +64,6 @@ function updateTable() {
         row.appendChild(cell);
         tableBody.appendChild(row);
     }
-}
-
-// Función para eliminar un turno de la tabla y actualizar la vista
-function removeTurno(id_turno) {
-    // Elimina el turno del array
-    turnosQueue = turnosQueue.filter(turno => turno.id_turno !== id_turno);
-    updateTable();
 }
 
 // Cargar los turnos cuando la página haya terminado de cargarse
