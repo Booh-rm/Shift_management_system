@@ -40,8 +40,8 @@ CREATE TABLE `tb_turno` (
 
 CREATE TABLE login_logs (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    user_id INT NOT NULL,
-    id_dependencia INT NOT NULL,
+    user_id VARCHAR(50) NOT NULL,
+    id_dependencia VARCHAR(2) NOT NULL,
     login_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES tb_funcionario(cedula)
 );
