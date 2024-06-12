@@ -1,5 +1,5 @@
 
-USE `Shift_management_system`;
+USE `shift_management_system`;
 
 CREATE TABLE `tb_usuario` (
     `cedula` INT PRIMARY KEY,
