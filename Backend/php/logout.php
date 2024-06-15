@@ -1,7 +1,13 @@
 <?php
 session_start();
 
-include('config/config_mysqli.php');
+// include('config/config_mysqli.php');
+$serverName = "localhost";
+$userName = "root";
+$password = "root";
+$database = "shift_management_system";
+
+$conn = mysqli_connect($serverName, $userName, $password, $database);
 
 if (isset($_SESSION['user_id'])) {
     $user_id = $_SESSION['user_id'];

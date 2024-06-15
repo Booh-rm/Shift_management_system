@@ -1,6 +1,12 @@
 <?php
 
-include ('../config/config_mysqli.php');
+// include ('../config/config_mysqli.php');
+$serverName = "localhost";
+$userName = "root";
+$password = "root";
+$database = "shift_management_system";
+
+$conn = mysqli_connect($serverName, $userName, $password, $database);
 
 // Verificar si se ha enviado un DNI
 if (isset($_POST['dni'])) {

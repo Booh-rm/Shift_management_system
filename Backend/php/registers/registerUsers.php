@@ -9,6 +9,13 @@ $lastname = $_POST["lastname"];
 $email = $_POST["email"];
 $pass = $_POST["pass"];
 
+$serverName = "localhost";
+$userName = "root";
+$password = "root";
+$database = "shift_management_system";
+
+$conn = mysqli_connect($serverName, $userName, $password, $database);
+
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }

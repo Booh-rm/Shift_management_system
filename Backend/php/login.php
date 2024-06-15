@@ -5,7 +5,14 @@ session_start();
 $email = $_POST["email"];
 $pass = $_POST["pass"];
 
-include('config/config_mysqli.php');
+// include('config/config_mysqli.php');
+
+$serverName = "localhost";
+$userName = "root";
+$password = "root";
+$database = "shift_management_system";
+
+$conn = mysqli_connect($serverName, $userName, $password, $database);
 
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
