@@ -10,15 +10,15 @@ function loadTurnos() {
         .then(response => response.json())
         .then(data => {
 
-            const verTurnoSpan = document.getElementById('turnoInfo');
-            const shiftsTableBody = document.getElementById('shifts-table-body');
-            const shiftheaderA = document.getElementById('verTurno');
-            const shiftheaderB = document.getElementById('verCaja');
-            // Limpiar cualquier contenido existente
-            verTurnoSpan.innerHTML = '';
-            shiftsTableBody.innerHTML = ''; // Limpiar la tabla de turnos
-            shiftheaderA.innerHTML = '';
-            shiftheaderB.innerHTML = '';
+            // const verTurnoSpan = document.getElementById('turnoInfo');
+            // const shiftsTableBody = document.getElementById('shifts-table-body');
+            // const shiftheaderA = document.getElementById('verTurno');
+            // const shiftheaderB = document.getElementById('verCaja');
+            // // Limpiar cualquier contenido existente
+            // verTurnoSpan.innerHTML = '';
+            // shiftsTableBody.innerHTML = ''; // Limpiar la tabla de turnos
+            // shiftheaderA.innerHTML = '';
+            // shiftheaderB.innerHTML = '';
 
             // Dividir los turnos en dos grupos: primer turno y los siguientes 5 turnos
             const primerTurno = data.shift(); // Extraer el primer turno
