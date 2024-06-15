@@ -3,6 +3,17 @@ let fieldsAdded = false;
 document.getElementById('addFieldsBtn').addEventListener('click', function () {
     // Obtener el valor del DNI ingresado por el usuario
     var dni = document.getElementById('dni').value;
+    var selectedIndex = document.getElementById('dependencia').selectedIndex;
+
+    // Verificar si el DNI está vacío
+    if (!dni) {
+        alert('Por favor, ingrese un DNI.');
+        return;
+    }
+    if (selectedIndex === 0) {
+        alert('Por favor, seleccione una dependencia válida.');
+        return;
+    }
 
     // Realizar una solicitud AJAX para verificar si el DNI está en la base de datos
     $.ajax({
@@ -13,9 +24,6 @@ document.getElementById('addFieldsBtn').addEventListener('click', function () {
  
             // Verifica si el DNI existe en la base de datos y la dependencia es válida
             if (response === 'existe') {
-                // Obtenemos el índice del elemento seleccionado en el select
-                var selectedIndex = document.getElementById('dependencia').selectedIndex;
-
                 // Verificamos si se ha seleccionado el primer elemento del select (índice 0)
                 if (selectedIndex === 0) {
                     // Si la dependencia no es válida, muestra una alerta
