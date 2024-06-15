@@ -8,6 +8,9 @@ $lastname = $_POST["lastName"];
 $phone = $_POST["phone"];
 $email = $_POST["email"];
 
+// Concatenar +57 al teléfono
+$phonef = '+57' . $phone;
+
 $serverName = "localhost";
 $userName = "root";
 $password = "root";
@@ -22,7 +25,7 @@ if (!$conn) {
 
 $sql = "INSERT INTO tb_usuario (cedula, nombre, apellido, telefono, email) VALUES (?, ?, ?, ?, ?)";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("sssss", $dni, $name, $lastname, $phone, $email);
+$stmt->bind_param("sssss", $dni, $name, $lastname, $phonef, $email);
 
 if ($stmt->execute() === TRUE) {
     echo json_encode(array('type' => 1, 'message' => 'Cliente registrado correctamente'));
