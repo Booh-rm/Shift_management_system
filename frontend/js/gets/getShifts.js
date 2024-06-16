@@ -1,24 +1,11 @@
 let turnosQueue = [];
-// document.addEventListener('DOMContentLoaded', function() {
-//     loadTurnos();
-//     console.log('Escuchando evento de tabla actualizada en la vista 2');
-//     document.addEventListener('tablaActualizada', loadTurnos);
-// });
+
 // Función para cargar los turnos desde el archivo PHP
 function loadTurnos() {
+    // console.log('Cargando turnos a las', new Date().toLocaleTimeString());
     fetch('../../../Backend/php/gets/getShifts.php')
         .then(response => response.json())
         .then(data => {
-
-            // const verTurnoSpan = document.getElementById('turnoInfo');
-            // const shiftsTableBody = document.getElementById('shifts-table-body');
-            // const shiftheaderA = document.getElementById('verTurno');
-            // const shiftheaderB = document.getElementById('verCaja');
-            // // Limpiar cualquier contenido existente
-            // verTurnoSpan.innerHTML = '';
-            // shiftsTableBody.innerHTML = ''; // Limpiar la tabla de turnos
-            // shiftheaderA.innerHTML = '';
-            // shiftheaderB.innerHTML = '';
 
             // Dividir los turnos en dos grupos: primer turno y los siguientes 5 turnos
             const primerTurno = data.shift(); // Extraer el primer turno
@@ -39,6 +26,7 @@ function loadTurnos() {
 
 // Función para actualizar la tabla con los siguientes 5 turnos
 function updateTable() {
+    // console.log('Actualizando tabla a las', new Date().toLocaleTimeString());
     const tableBody = document.getElementById('shifts-table-body');
     tableBody.innerHTML = '';  // Limpiar cualquier contenido existente
 
@@ -66,5 +54,14 @@ function updateTable() {
     }
 }
 
+// Función para iniciar la carga de turnos cada 2 segundos
+function startAutoReload() {
+    loadTurnos(); // Cargar inmediatamente al inicio
+    setInterval(loadTurnos, 1000); // Recargar cada 2 segundos
+}
+
+// Iniciar la recarga automática cuando la página haya terminado de cargarse
+document.addEventListener('DOMContentLoaded', startAutoReload);
+
 // Cargar los turnos cuando la página haya terminado de cargarse
-document.addEventListener('DOMContentLoaded', loadTurnos);
+// document.addEventListener('DOMContentLoaded', loadTurnos);
