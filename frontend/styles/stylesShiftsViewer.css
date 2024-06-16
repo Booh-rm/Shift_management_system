@@ -387,7 +387,7 @@ section {
 }
 
 .shiftviewertables-down {
-    color: red;
+    color: rgb(255, 255, 255);
     font-size: 3vw;
     /* Utiliza vw (viewport width) para que el tamaño del texto se ajuste al ancho de la pantalla */
     flex-basis: 30%;
