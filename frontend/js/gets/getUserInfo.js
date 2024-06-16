@@ -13,6 +13,7 @@ window.onload = function () {
 };
 
 function loadDependenciaTurnos() {
+    console.log('Cargando turnos a las', new Date().toLocaleTimeString());
     fetch('../../../Backend/php/gets/getShiftsA.php')
         .then(response => response.json())
         .then(data => {
@@ -65,7 +66,7 @@ function loadDependenciaTurnos() {
 }
 
 // Cargar los turnos relacionados con la dependencia del funcionario
-document.addEventListener('DOMContentLoaded', loadDependenciaTurnos);
+// document.addEventListener('DOMContentLoaded', loadDependenciaTurnos);
 
 // Función para actualizar la tabla con los siguientes 5 turnos
 function updateTable() {
@@ -91,3 +92,12 @@ function updateTable() {
         tableBody.appendChild(row);
     }
 }
+
+// Función para iniciar la carga de turnos cada 2 segundos
+function startAutoReload() {
+    loadDependenciaTurnos(); // Cargar inmediatamente al inicio
+    setInterval(loadDependenciaTurnos, 1000); // Recargar cada 2 segundos
+}
+
+// Iniciar la recarga automática cuando la página haya terminado de cargarse
+document.addEventListener('DOMContentLoaded', startAutoReload);
