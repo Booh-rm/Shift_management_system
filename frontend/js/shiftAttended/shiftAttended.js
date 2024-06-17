@@ -15,7 +15,8 @@ document.getElementById('atender-btn').addEventListener('click', function () {
             .then(response => response.json())
             .then(data => {
                 if (data.type === 'success') {
-                    loadDependenciaTurnos(); // Volver a cargar los turnos después de atender uno
+                    loadDependenciaTurnos();
+                    reproducirSonido(); // Volver a cargar los turnos después de atender uno
                     // Después de atender un turno
                     // document.dispatchEvent(new Event('turnoAtendido'));
 
@@ -28,3 +29,9 @@ document.getElementById('atender-btn').addEventListener('click', function () {
         console.error('No hay turno disponible para atender');
     }
 });
+
+function reproducirSonido() {
+    const audio = new Audio('../../assets/sounds/notification.mp3');
+    console.log('Reproduciendo sonido...');
+    audio.play();
+}
