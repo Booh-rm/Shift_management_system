@@ -7,10 +7,15 @@ document.getElementById('addFieldsBtn').addEventListener('click', function () {
 
     // Verificar si el DNI está vacío
     if (!dni) {
+        // Convertir texto a voz y reproducirlo
+        var textoModal = "Por favor, ingrese un DNI.";
+        reproducirTextoAVoz1(textoModal);
         alert('Por favor, ingrese un DNI.');
         return;
     }
     if (selectedIndex === 0) {
+        var textoModal2 = "Por favor, seleccione una dependencia válida.";
+        reproducirTextoAVoz1(textoModal2);
         alert('Por favor, seleccione una dependencia válida.');
         return;
     }
@@ -179,6 +184,8 @@ function registerClient() {
             }
         });
     } else {
+        var textoModal3 = "Por favor, diligenciar todos los campos del formulario.";
+        reproducirTextoAVoz3(textoModal3);
         alert('Por favor, complete todos los campos y seleccione una dependencia válida.');
     }
 }
@@ -211,6 +218,7 @@ function obtenerNombreUsuario() {
                         try {
                             var result = JSON.parse(response);
                             if (result.success) {
+                                reproducirTextoAVoz1(result.desc_turnoL);
                                 mostrarModalConUsuario(result.desc_turno);
                             } else {
                                 alert('Error al registrar el turno: ' + result.error);
@@ -307,3 +315,60 @@ document.getElementById('closeBtnTA').addEventListener('click', function () {
     // Recarga la página
     window.location.reload();
 });
+
+// Función para reproducir texto a voz utilizando la API Web Speech
+function reproducirTextoAVoz1(texto) {
+    // Verificar si la API SpeechSynthesis está disponible en el navegador
+    if ('speechSynthesis' in window) {
+        var utterance = new SpeechSynthesisUtterance(texto);
+
+        utterance.lang = 'es-US';
+        // Opcional: Configurar propiedades del utterance (velocidad, tono, voz, etc.)
+        utterance.rate = 1.1; // Velocidad de reproducción
+         utterance.pitch = 0.9; // Tono de voz
+
+        // Reproducir el texto en voz
+        speechSynthesis.speak(utterance);
+        console.log('Reproduciendo texto en voz:', texto);
+    } else {
+        alert('Tu navegador no soporta la API de SpeechSynthesis.');
+    }
+}
+
+// Función para reproducir texto a voz utilizando la API Web Speech
+function reproducirTextoAVoz2(texto2) {
+    // Verificar si la API SpeechSynthesis está disponible en el navegador
+    if ('speechSynthesis' in window) {
+        var utterance = new SpeechSynthesisUtterance(texto2);
+
+        utterance.lang = 'es-US';
+        // Opcional: Configurar propiedades del utterance (velocidad, tono, voz, etc.)
+        utterance.rate = 1.1; // Velocidad de reproducción
+         utterance.pitch = 0.9; // Tono de voz
+
+        // Reproducir el texto en voz
+        speechSynthesis.speak(utterance);
+        console.log('Reproduciendo texto en voz:', texto2);
+    } else {
+        alert('Tu navegador no soporta la API de SpeechSynthesis.');
+    }
+}
+
+// Función para reproducir texto a voz utilizando la API Web Speech
+function reproducirTextoAVoz3(texto3) {
+    // Verificar si la API SpeechSynthesis está disponible en el navegador
+    if ('speechSynthesis' in window) {
+        var utterance = new SpeechSynthesisUtterance(texto3);
+
+        utterance.lang = 'es-US';
+        // Opcional: Configurar propiedades del utterance (velocidad, tono, voz, etc.)
+        utterance.rate = 1.1; // Velocidad de reproducción
+         utterance.pitch = 0.9; // Tono de voz
+
+        // Reproducir el texto en voz
+        speechSynthesis.speak(utterance);
+        console.log('Reproduciendo texto en voz:', texto3);
+    } else {
+        alert('Tu navegador no soporta la API de SpeechSynthesis.');
+    }
+}
