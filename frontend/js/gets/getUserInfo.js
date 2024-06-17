@@ -1,3 +1,5 @@
+let ultimoTextoReproducido = '';
+
 window.onload = function () {
     $.post("../../../Backend/php/gets/getUserInfo.php", function (data) {
         var obj = JSON.parse(data);
@@ -35,6 +37,14 @@ function loadDependenciaTurnos() {
                 document.getElementById('verCaja').textContent = primerTurno.descripcion;
 
                 // Crear el texto con la información del primer turno
+                const nuevoTexto = "Siguiente turno: " + primerTurno.id_turno + ", " + primerTurno.nombre_usuario + ", en " + primerTurno.descripcion;
+
+                // Reproducir el texto en voz si es diferente del último texto reproducido
+                if (nuevoTexto !== ultimoTextoReproducido) {
+                    reproducirTextoAVoz(nuevoTexto);
+                    ultimoTextoReproducido = nuevoTexto;
+                }
+                
                 const turnoText = document.createTextNode(primerTurno.id_turno + ":\n " + "Atendiendo a usuario " + primerTurno.nombre_usuario + ", con numero de identificación: " + primerTurno.id_usuario);
 
                 // Agregar el texto al elemento span
@@ -93,10 +103,29 @@ function updateTable() {
     }
 }
 
-// Función para iniciar la carga de turnos cada 2 segundos
+// Función para reproducir texto a voz utilizando la API Web Speech
+function reproducirTextoAVoz(texto) {
+    // Verificar si la API SpeechSynthesis está disponible en el navegador
+    if ('speechSynthesis' in window) {
+        var utterance = new SpeechSynthesisUtterance(texto);
+
+        utterance.lang = 'es-ES'; // Configurar el idioma a español
+        // Opcional: Configurar propiedades del utterance (velocidad, tono, voz, etc.)
+        utterance.rate = 1.1; // Velocidad de reproducción
+        utterance.pitch = 0.9; // Tono de voz
+
+        // Reproducir el texto en voz
+        speechSynthesis.speak(utterance);
+        console.log('Reproduciendo texto en voz:', texto);
+    } else {
+        alert('Tu navegador no soporta la API de SpeechSynthesis.');
+    }
+}
+
+// Función para iniciar la carga de turnos cada 1 segundos
 function startAutoReload() {
     loadDependenciaTurnos(); // Cargar inmediatamente al inicio
-    setInterval(loadDependenciaTurnos, 1000); // Recargar cada 2 segundos
+    setInterval(loadDependenciaTurnos, 1000); // Recargar cada 1 segundos
 }
 
 // Iniciar la recarga automática cuando la página haya terminado de cargarse
