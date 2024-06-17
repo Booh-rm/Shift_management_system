@@ -5,7 +5,7 @@
 ----------------------------------
 
 <p align="center">
-  <img src="https://github.com/Booh-rm/Shift_management_system/blob/gh-pages/frontend/assets/mockup.png" />
+  <img src="https://github.com/Booh-rm/Shift_management_system/blob/gh-pages/frontend/assets/mockupInit.png" />
 </p>
 
 ----------------------------------
