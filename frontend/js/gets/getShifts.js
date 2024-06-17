@@ -7,16 +7,23 @@ function loadTurnos() {
         .then(response => response.json())
         .then(data => {
 
-            // Dividir los turnos en dos grupos: primer turno y los siguientes 5 turnos
-            const primerTurno = data.shift(); // Extraer el primer turno
-            const siguientesTurnos = data.slice(0, 5); // Obtener los siguientes 5 turnos
+            if (data.length > 0) {
+                // Dividir los turnos en dos grupos: primer turno y los siguientes 5 turnos
+                const primerTurno = data.shift(); // Extraer el primer turno
+                const siguientesTurnos = data.slice(0, 5); // Obtener los siguientes 5 turnos
 
-            // Mostrar el primer turno en el encabezado
-            document.getElementById('verTurno').textContent = primerTurno.id_turno;
-            document.getElementById('verCaja').textContent = primerTurno.descripcion;
+                // Mostrar el primer turno en el encabezado
+                document.getElementById('verTurno').textContent = primerTurno.id_turno;
+                document.getElementById('verCaja').textContent = primerTurno.descripcion;
 
-            // Agregar los siguientes 5 turnos a la cola de turnos
-            turnosQueue = siguientesTurnos;
+                // Agregar los siguientes 5 turnos a la cola de turnos
+                turnosQueue = siguientesTurnos;
+            } else {
+                // No hay turnos disponibles
+                document.getElementById('verTurno').textContent = '';
+                document.getElementById('verCaja').textContent = '';
+                turnosQueue = [];
+            }
 
             // Actualizar la tabla con los siguientes 5 turnos
             updateTable();
@@ -62,6 +69,3 @@ function startAutoReload() {
 
 // Iniciar la recarga automática cuando la página haya terminado de cargarse
 document.addEventListener('DOMContentLoaded', startAutoReload);
-
-// Cargar los turnos cuando la página haya terminado de cargarse
-// document.addEventListener('DOMContentLoaded', loadTurnos);
