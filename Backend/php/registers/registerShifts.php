@@ -136,7 +136,11 @@ WHERE id_consulta = ?";
     $descTurno = "Apreciado cliente: " . $nombreUsuario . " " . $apellidoUsuario . ',' .
         " su turno corresponde al: " . $idTurno . ", en la dependencia: " . $dependencia .
         ", atendido por: " . $nombreFuncionario . " " . $apellidoFuncionario . ',' .
-        "\n fecha: " . date('Y-m-d') . " hora: " . date('H:i:s');
+        "\n fecha: " . date('Y-m-d') . " hora: " . date('H:i:s') . '.' . "\n" . "Puede ver su turno aqui: http://";
+
+    $descTurnoL = "Apreciado cliente: " . $nombreUsuario . " " . $apellidoUsuario . ',' .
+        " su turno corresponde al: " . $idTurno . ", en la dependencia: " . $dependencia;
+
     $stmt->bind_param("sssss", $idTurno, $dni, $idConsulta, $idFuncionario, $descTurno);
     $stmt->execute();
 
@@ -164,7 +168,8 @@ WHERE id_consulta = ?";
             array(
                 'success' => true,
                 'id_turno' => $idTurno,
-                'desc_turno' => $descTurno
+                'desc_turno' => $descTurno,
+                'desc_turnoL' => $descTurnoL
             )
         );
     } else {
