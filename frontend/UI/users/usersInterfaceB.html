@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../assets/images/list-of-users--.png" type="image/x-icon">
+    <title>Turnify - Interfaz usuarios</title>
+    <link rel="stylesheet" href="../../styles/stylesUserInterface.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+</head>
+
+<body>
+    <section>
+        <div class="icon-container">
+            <div class="icon-box shiftviewer" data-modal="shiftviewer">
+                <i class="fa-regular fa-home"></i>
+            </div>
+            <div class="icon-box-back back-btn" type="submit">
+                <i class="fa-solid fa-arrow-left"></i>
+            </div>
+        </div>
+    </section>
+
+    <div class="popup" id="shiftviewer">
+        <div class="popup-container">
+            <div class="popup-header">
+                <div class="button-container">
+                    <button class="close-btn circle-btn red">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                    <button class="close-btn circle-btn yellow">
+                        <i class="fa-solid fa-window-minimize"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- shiftViewer-container -->
+            <div class="popup-body ">
+
+                <div class="shiftviewer-container">
+                    <header>
+                        <div class="shiftviewertables-framework">
+                            <div class="shiftviewertables-container">
+                                <div class="shiftviewertables-column">
+                                    <div class="shiftviewertables-up">Turno</div>
+                                    <div class="shiftviewertables-down" id="verTurno">
+                                    </div>
+                                </div>
+                                <div class="shiftviewertables-column">
+                                    <div class="shiftviewertables-up">Dependencia</div>
+                                    <div class="shiftviewertables-down" id="verCaja">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </header>
+
+                    <section class="content">
+                        <div class="left-content">
+                            <h1>Dependencia:
+                                <span id="dependencia"></span>
+                            </h1>
+                            <br>
+                            <div class="img-status">
+                                <img src="../../assets/images/online.png" id="imgStatus"> Online
+                            </div>
+                            <br>
+                            <h2>Funcionario:
+                                <span id="userName"></span>
+                            </h2>
+                            <br>
+                            <h2>Turno:</h2>
+                            <h2>
+                                <span id="turnoInfo"></span>
+                            </h2>
+                            <br><br><br>
+                            <button type="submit" name="atender" id="atender-btn" class="submit-btn more-btn">
+                                <span>Atender</span>
+                            </button>
+                            <br><br>
+                            <button type="submit" id="logOut-btn" class="exit-btn exit-btn">
+                                <span>Cerrar cesión</span>
+                            </button>
+                            <br>
+                        </div>
+                        <div class="right-content">
+                            <div class="shifts-container">
+                                <table class="shifts-table" id="shifts-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Turno</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="shifts-table-body">
+                                        <!-- Aquí se incluirán los turnos relacionados con la dependencia -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </section>
+
+                    <footer class="footer">
+                        <marquee class="infoApp">🥺 Algo es algo - En veces solo quiero dormir y ser feliz 🥺</marquee>
+                    </footer>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="../../js/userInterfaceB.js"></script>
+    
+    <script src="../../js/gets/getUserInfoB.js"></script>
+    <script src="../../js/shiftAttended/shiftAttendedB.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</body>
+
+</html>
