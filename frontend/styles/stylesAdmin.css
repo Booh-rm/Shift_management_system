@@ -451,11 +451,12 @@ section {
 
 .shifts-table {
     width: 100%;
+    border-collapse: collapse;
 }
 
 .shifts-table th {
     font-size: 150%;
-    color: black;
+    color: rgb(0, 38, 255);
     padding: 25px;
 }
 
@@ -465,6 +466,50 @@ section {
     padding-bottom: 15px;
     font-weight: 600;
 }
+
+.shifts-table-body {
+    width: 100%;
+}
+
+
+/* Estilos para la tabla */
+
+.shifts-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+    font-size: 1.5vw;
+}
+
+.shifts-table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+/* Estilos para las celdas de los turnos */
+.shifts-table .turno-cell {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+/* Estilos para las celdas de las dependencias */
+.shifts-table .dependencia-cell {
+    background-color: #eaf1f7;
+}
+
+/* Estilos para el mensaje de no hay turnos */
+.shifts-table .no-turnos-cell {
+    text-align: center;
+    font-style: italic;
+    color: #888;
+}
+
+/* Estilo para las filas alternas */
+.shifts-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
 
 .footer {
     margin: 20px auto;
