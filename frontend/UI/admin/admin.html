@@ -70,21 +70,32 @@
                         </div>
                         <div class="right-content">
                             <div class="shifts-container">
-                                <table class="shifts-table" id="shifts-table">
-                                    <tr>
-                                        <th>Turnos</th>
-                                        <th colspan="2">Dependencias</th>
-                                    </tr>
+                                <table class="shifts-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Turno</th>
+                                            <th colspan="2">Dependencia</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="shifts-table-body">
+                                        <!-- Los datos se insertarán aquí -->
+                                    </tbody>
                                 </table>
+                                
                             </div>
                             <span>  - </span>
                             <div class="shifts-container">
-                                <table class="shifts-table" id="shifts-table">
-                                    <tr>
-                                        <th>Total de Turnos</th>
-                                        <th colspan="2">Dependencia mas solicitada</th>
-                                        <th colspan="2">Dependencia menos solicitada</th>
-                                    </tr>
+                                <table class="shifts-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Total de Turnos</th>
+                                            <th colspan="2">Dependencia mas solicitada</th>
+                                            <th colspan="2">Dependencia menos solicitada</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="shifts-table-body2">
+                                        <!-- Los datos se insertarán aquí -->
+                                    </tbody>
                                 </table>
                             </div>
                         </div>
@@ -98,8 +109,12 @@
 
     <script src="../../js/scriptAdmin.js"></script>
     <script src="../../js/login&signout/login.js"></script>
+    <script src="../../js/gets/getShiftsAdmin.js"></script>
+    <script src="../../js/gets/getUserInfoAdmin.js"></script>
+    <script src="../../js/gets/getShiftStatistics.js"></script>
+    
     <!-- <script src="../../js/login&signout/signout.js"></script> -->
-    <script src="../../js/gets/getUserInfo.js"></script>
+    
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
