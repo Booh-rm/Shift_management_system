@@ -1,2 +1,5 @@
 Backend/php/services/email/notificationsEmail.php
 Backend/php/services/sms/notificationsSms.php
+Backend/php/reports/tcpdf
+Backend/php/services/email/sendgrid-php
+Backend/php/services/sms/twilio-php
